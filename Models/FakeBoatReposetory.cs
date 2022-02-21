@@ -31,7 +31,7 @@ namespace Hello_World_Razor_Page.Models
         {
             get
             {
-                if (_instance is null)
+                if (_instance == null)
                 {
                     _instance = new FakeBoatReposetory();
                 }
@@ -80,6 +80,11 @@ namespace Hello_World_Razor_Page.Models
              }
 
              return tempBoat;
+       }
+
+       public Boat EditbBoat()
+       {
+           throw new NotImplementedException();
        }
     }
 }

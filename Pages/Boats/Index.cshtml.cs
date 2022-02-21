@@ -15,7 +15,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
 
         public IndexModel()
         {
-            _reposetory = new FakeBoatReposetory();
+            _reposetory = FakeBoatReposetory.Instance;
         }
         public void OnGet()
         {

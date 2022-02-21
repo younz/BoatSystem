@@ -9,7 +9,9 @@ namespace Hello_World_Razor_Page.Models
     public class FakeBoatReposetory
     {
         private List<Boat> _boats { get;}
-        public FakeBoatReposetory()
+        private static FakeBoatReposetory _instance;
+
+        private FakeBoatReposetory()
         {
             _boats = new List<Boat>();
 
@@ -25,6 +27,18 @@ namespace Hello_World_Razor_Page.Models
 
         }
 
+        public static FakeBoatReposetory Instance
+        {
+            get
+            {
+                if (_instance is null)
+                {
+                    _instance = new FakeBoatReposetory();
+                }
+
+                return _instance;
+            }
+        }
         public IEnumerable<Boat> GetAllBoats()
         {
             return _boats.ToList();
@@ -33,7 +47,7 @@ namespace Hello_World_Razor_Page.Models
         public void AddBoat(Boat boat)
         {
             List<int> boatId = new();
-            foreach (var evtBoat in _boats)
+            foreach (Boat evtBoat in _boats)
             {
                 boatId.Add(evtBoat.BoatId);
             }
@@ -50,31 +64,22 @@ namespace Hello_World_Razor_Page.Models
 
             _boats.Add(boat);
         }
-        public void RemoveBoat(Boat boat)
-        {
-            List<int> boatId = new();
-            foreach (var evtBoat in _boats)
-            {
-                boatId.Add(evtBoat.BoatId);
-            }
+         public void RemoveBoat(int id)
+         {
+             throw new NotImplementedException();
+         }
+       public Boat GetByID(int num)
+       {
+           Boat tempBoat = null;
+             foreach (Boat VARIABLE in _boats)
+             {
+                 if (num == VARIABLE.BoatId)
+                 {
+                     tempBoat = VARIABLE;
+                 }
+             }
 
-            if (boatId.Count != 0)
-            {
-                int start = boatId.Max();
-                boat.BoatId = start + 1;
-            }
-            else
-            {
-                boat.BoatId = 1;
-            }
-
-            _boats.Add(boat);
-        }
-        /*public IEnumerable<Boat> GetByID( int num)
-        {
-            foreach (Boat VARIABLE in Members)
-            {
-            }
-        }*/
+             return tempBoat;
+       }
     }
 }

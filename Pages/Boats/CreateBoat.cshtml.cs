@@ -16,7 +16,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
 
         public CreateBoatModel()
         {
-            _repository = new FakeBoatReposetory();
+            _repository = FakeBoatReposetory.Instance;
         }
         public IActionResult OnGet()
         {

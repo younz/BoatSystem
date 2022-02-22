@@ -66,7 +66,14 @@ namespace Hello_World_Razor_Page.Models
         }
          public void RemoveBoat(int id)
          {
-             throw new NotImplementedException();
+             foreach (var VARIABLE in _boats)
+             {
+                 if (id == VARIABLE.BoatId) 
+                 {
+                     _boats.Remove(VARIABLE);
+                    
+                 }
+             }
          }
        public Boat GetByID(int num)
        {
@@ -82,9 +89,20 @@ namespace Hello_World_Razor_Page.Models
              return tempBoat;
        }
 
-       public Boat EditbBoat()
+       public void EditBoat(Boat boat)
        {
-           throw new NotImplementedException();
+           if (boat != null)
+           {
+               foreach (var oldBoat in _boats)
+               {
+                   if (oldBoat.BoatId == boat.BoatId)
+                   {
+                       oldBoat.BoatId = boat.BoatId;
+                       oldBoat.BoatName = boat.BoatName;
+                       oldBoat.Model = boat.Model;
+                   }
+               }
+           }
        }
     }
 }

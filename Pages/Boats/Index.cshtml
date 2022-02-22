@@ -37,7 +37,10 @@
                 @item.Model
             </td>
             <td>
-                <a asp-page="EditBoat">Edit Boat</a>
+                <a asp-page="EditBoat" asp-route-id="@item.BoatId">Edit Boat</a>
+            </td>
+            <td>
+                <a asp-action="" asp-route-id="@item.BoatId">Delete</a>
             </td>
         </tr>
     }

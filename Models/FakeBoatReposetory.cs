@@ -8,19 +8,19 @@ namespace Hello_World_Razor_Page.Models
 {
     public class FakeBoatReposetory
     {
-        private List<Boat> _boats { get;}
+        private List<Boat> Boats { get; }
         private static FakeBoatReposetory _instance;
 
         private FakeBoatReposetory()
         {
-            _boats = new List<Boat>();
+            Boats = new List<Boat>();
 
 
-            _boats.Add(new Boat()
+            Boats.Add(new Boat()
             {
                 BoatId = 5, BoatName = "Jannata", Model = BoatModels.Feva
             });
-            _boats.Add(new Boat()
+            Boats.Add(new Boat()
             {
                 BoatId = 8, BoatName = "Jekata", Model = BoatModels.Lynæs
             });
@@ -41,13 +41,13 @@ namespace Hello_World_Razor_Page.Models
         }
         public IEnumerable<Boat> GetAllBoats()
         {
-            return _boats.ToList();
+            return Boats.ToList();
         }
 
         public void AddBoat(Boat boat)
         {
             List<int> boatId = new();
-            foreach (Boat evtBoat in _boats)
+            foreach (Boat evtBoat in Boats)
             {
                 boatId.Add(evtBoat.BoatId);
             }
@@ -62,27 +62,32 @@ namespace Hello_World_Razor_Page.Models
                 boat.BoatId = 1;
             }
 
-            _boats.Add(boat);
+            Boats.Add(boat);
         }
-         public void RemoveBoat(int id)
+        public void RemoveBoat(Boat boat)
          {
-             foreach (var VARIABLE in _boats)
+             Boat tempBoat = GetById(boat.BoatId);
+           /*  foreach (Boat variable in _boats)
              {
-                 if (id == VARIABLE.BoatId) 
+                 if (boat.BoatId == variable.BoatId)
                  {
-                     _boats.Remove(VARIABLE);
-                    
+                     tempBoat = boat;
+                     
+                    break;
                  }
-             }
+             }*/
+             Boats.Remove(tempBoat);
+             
+            
          }
-       public Boat GetByID(int num)
+       public Boat GetById(int num)
        {
            Boat tempBoat = null;
-             foreach (Boat VARIABLE in _boats)
+             foreach (Boat variable in Boats)
              {
-                 if (num == VARIABLE.BoatId)
+                 if (num == variable.BoatId)
                  {
-                     tempBoat = VARIABLE;
+                     tempBoat = variable;
                  }
              }
 
@@ -93,7 +98,7 @@ namespace Hello_World_Razor_Page.Models
        {
            if (boat != null)
            {
-               foreach (var oldBoat in _boats)
+               foreach (var oldBoat in Boats)
                {
                    if (oldBoat.BoatId == boat.BoatId)
                    {

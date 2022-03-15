@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Hello_World_Razor_Page.Pages.Boats;
+using Hello_World_Razor_Page.Interface;
+using Hello_World_Razor_Page.Models;
 
-namespace Hello_World_Razor_Page.Models
+namespace Hello_World_Razor_Page.Services
 {
-    public class FakeBoatReposetory
+    public class FakeBoatReposetory : IBoatReposetory
     {
         private List<Boat> Boats { get; }
-        private static FakeBoatReposetory _instance;
+        //private static FakeBoatReposetory _instance;
 
-        private FakeBoatReposetory()
+        public FakeBoatReposetory()
         {
             Boats = new List<Boat>();
 
@@ -27,7 +26,7 @@ namespace Hello_World_Razor_Page.Models
 
         }
 
-        public static FakeBoatReposetory Instance
+       /* public static FakeBoatReposetory Instance
         {
             get
             {
@@ -38,7 +37,7 @@ namespace Hello_World_Razor_Page.Models
 
                 return _instance;
             }
-        }
+        }*/
         public IEnumerable<Boat> GetAllBoats()
         {
             return Boats.ToList();

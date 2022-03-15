@@ -1,5 +1,7 @@
 using System;
+using Hello_World_Razor_Page.Interface;
 using Hello_World_Razor_Page.Models;
+using Hello_World_Razor_Page.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,16 +9,17 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class EditPageModel : PageModel
     {
-        private FakeBoatReposetory _reposetory;
+        //private FakeBoatReposetory _reposetory;
+        private IBoatReposetory repo;
         [BindProperty] public Boat BoatEdit { get; set; }
 
-        public EditPageModel()
+        public EditPageModel(IBoatReposetory reposetory)
         {
-                _reposetory = FakeBoatReposetory.Instance;
+            repo = reposetory;
         }
         public void OnGet(int id)
         {
-            BoatEdit = _reposetory.GetById(id);
+            BoatEdit = repo.GetById(id);
             
         }
 
@@ -26,7 +29,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
             {
                 return Page();
             }
-            _reposetory.EditBoat(BoatEdit);
+            repo.EditBoat(BoatEdit);
             return RedirectToPage("Index");
         }
     }

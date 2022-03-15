@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hello_World_Razor_Page.Interface;
 using Hello_World_Razor_Page.Models;
+using Hello_World_Razor_Page.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,13 +12,14 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class CreateBoatModel : PageModel
     {
-        private FakeBoatReposetory _repository;
-        [BindProperty]
+       //private FakeBoatReposetory _repository;
+       private IBoatReposetory repo; 
+       [BindProperty]
         public Boat Boat { get; set; }
 
-        public CreateBoatModel()
+        public CreateBoatModel(IBoatReposetory reposetory )
         {
-            _repository = FakeBoatReposetory.Instance;
+            repo = reposetory;
         }
         public IActionResult OnGet()
         {
@@ -29,7 +32,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
             {
                 return Page();
             }
-            _repository.AddBoat(Boat);
+            repo.AddBoat(Boat);
             return RedirectToPage("Index");
         }
     }

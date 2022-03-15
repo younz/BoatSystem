@@ -11,10 +11,10 @@ namespace Hello_World_Razor_Page.Helpers
 {
     public class JsonFileReader
     {
-        public Dictionary<int, Boat> ReadJson(string filePath)
+        public static List<Boat> ReadJson(string filePath)
         {
             string jsonstring = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<Dictionary<int, Boat>>(jsonstring);
+            return JsonConvert.DeserializeObject<List<Boat>>(jsonstring);
             
         }
     }

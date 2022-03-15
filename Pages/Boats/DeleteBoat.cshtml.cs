@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hello_World_Razor_Page.Interface;
 using Hello_World_Razor_Page.Models;
+using Hello_World_Razor_Page.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,16 +12,16 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class DeleteBoatModel : PageModel
     {
-        private FakeBoatReposetory _boatReposetory;
+        private IBoatReposetory repo;
         [BindProperty] public Boat RBoat { get; set; }
 
-        public DeleteBoatModel()
+        public DeleteBoatModel(IBoatReposetory reposetory)
         {
-            _boatReposetory = FakeBoatReposetory.Instance;
+            repo = reposetory;
         }
         public void OnGet(int id)
         {
-            RBoat = _boatReposetory.GetById(id);
+            RBoat = repo.GetById(id);
         }
 
         public IActionResult OnPost()
@@ -29,7 +31,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
                 return Page();
                 
             }
-            _boatReposetory.RemoveBoat(RBoat);
+            repo.RemoveBoat(RBoat);
             return RedirectToPage("Index");
         }
     }

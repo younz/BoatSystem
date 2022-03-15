@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hello_World_Razor_Page.Interface;
+using Hello_World_Razor_Page.Services;
 
 namespace Hello_World_Razor_Page
 {
@@ -24,6 +26,8 @@ namespace Hello_World_Razor_Page
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            //services.AddSingleton<IBoatReposetory,FakeBoatReposetory>();
+            services.AddTransient<IBoatReposetory, JsonBoatRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,55 @@
+﻿@page
+@using Hello_World_Razor_Page.Services
+@model Hello_World_Razor_Page.Pages.Members.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Of Members</h1>
+<p>
+    <a asp-page="CreateMember"> Create new Boat </a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Mail
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Phone
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Members)
+    {
+        <tr>
+            <th>
+                @item.MemberName
+            </th>
+            <th>
+                @item.Email
+            </th>
+            <th>
+                @item.Address
+            </th>
+            <th>
+                @item.PhoneNumber
+            </th>
+            <td>
+                <a asp-page="EditPage" asp-route-id="@item.Id">Edit Info</a>
+            </td>
+            <td>
+                <a asp-page="DeleteMember" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

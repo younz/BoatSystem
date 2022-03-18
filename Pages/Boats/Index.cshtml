@@ -1,11 +1,9 @@
 ﻿@page
-@using Hello_World_Razor_Page.Interface
 @model Hello_World_Razor_Page.Pages.Boats.IndexModel
-@inject IBoatReposetory reposetory
+@*@inject IBoatReposetory reposetory*@
 @{
     ViewData["Title"] = "Index";
 }
-
 <h1>List Of Boats</h1>
 <p>
     <a asp-page="CreateBoat"> Create new Boat </a>
@@ -35,7 +33,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in reposetory.GetAllBoats())
+    @foreach (var item in Model.Boats)
     {
         <tr>
             <td>

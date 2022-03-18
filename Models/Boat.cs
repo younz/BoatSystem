@@ -26,6 +26,19 @@ namespace Hello_World_Razor_Page.Models
 
         //public int Size { get; set; }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is Boat)
+            {
+                Boat abBoat = (Boat)obj;
+                if (abBoat.BoatId == this.BoatId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public BoatModels Model { get; set; }
     }
 }

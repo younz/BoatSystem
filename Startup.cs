@@ -28,6 +28,7 @@ namespace Hello_World_Razor_Page
             services.AddRazorPages();
             //services.AddSingleton<IBoatReposetory,FakeBoatReposetory>();
             services.AddTransient<IBoatReposetory, JsonBoatRepo>();
+            services.AddSingleton<IMemberRepo, FakeMemberRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -43,16 +43,14 @@ namespace Hello_World_Razor_Page.Services
 
         public void RemoveBoat(Boat boat)
         {
-            var Temp = GetById(boat.BoatId);
-            List<Boat> removeBoats = GetAllBoats().ToList();
-            foreach (var VARIABLE in removeBoats)
+            if (boat!= null)
             {
-                if (Temp.BoatId == VARIABLE.BoatId)
-                {
-                    removeBoats.Remove(Temp);
-                }
+                
+                List<Boat> removeBoats = GetAllBoats().ToList();
+                removeBoats.Remove(boat);
+
+                JsonFileWriter.WriteToJson(removeBoats,filePath);
             }
-            JsonFileWriter.WriteToJson(removeBoats,filePath);
         }
 
         public Boat GetById(int num)
@@ -73,7 +71,8 @@ namespace Hello_World_Razor_Page.Services
         {
             if (boat != null)
             {
-                foreach (var oldBoat in GetAllBoats())
+                List<Boat> updateBoats = GetAllBoats().ToList();
+                foreach (var oldBoat in updateBoats)
                 {
                     if (oldBoat.BoatId == boat.BoatId)
                     {
@@ -82,7 +81,9 @@ namespace Hello_World_Razor_Page.Services
                         oldBoat.Model = boat.Model;
                     }
                 }
+                JsonFileWriter.WriteToJson(updateBoats,filePath);
             }
+            
         }
     }
 }

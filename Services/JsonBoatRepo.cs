@@ -81,7 +81,7 @@ namespace Hello_World_Razor_Page.Services
                         oldBoat.Model = boat.Model;
                     }
                 }
-                JsonFileWriter.WriteToJson(updateBoats,filePath);
+                JsonFileWriter.WriteToJsonBoat(updateBoats,filePath);
             }
             
         }

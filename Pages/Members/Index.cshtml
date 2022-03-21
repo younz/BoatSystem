@@ -14,6 +14,9 @@
     <thead>
     <tr>
         <th>
+            Member Number
+        </th>
+        <th>
             Name
         </th>
         <th>
@@ -31,6 +34,9 @@
     @foreach (var item in Model.Members)
     {
         <tr>
+            <th>
+                @item.Id
+            </th>
             <th>
                 @item.MemberName
             </th>

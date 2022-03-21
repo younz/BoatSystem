@@ -81,7 +81,7 @@ namespace Hello_World_Razor_Page.Services
 
         public void RemoveMember(Member member)
         {
-            var temp = GetMember(member.Id);
+            Member temp = GetMember(member.Id);
             membersList.Remove(temp);
         }
 

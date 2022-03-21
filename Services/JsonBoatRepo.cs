@@ -38,7 +38,7 @@ namespace Hello_World_Razor_Page.Services
             }
 
             adingBoats.Add(boat);
-            JsonFileWriter.WriteToJson(adingBoats,filePath);
+            JsonFileWriter.WriteToJsonBoat(adingBoats,filePath);
         }
 
         public void RemoveBoat(Boat boat)
@@ -49,7 +49,7 @@ namespace Hello_World_Razor_Page.Services
                 List<Boat> removeBoats = GetAllBoats().ToList();
                 removeBoats.Remove(boat);
 
-                JsonFileWriter.WriteToJson(removeBoats,filePath);
+                JsonFileWriter.WriteToJsonBoat(removeBoats,filePath);
             }
         }
 

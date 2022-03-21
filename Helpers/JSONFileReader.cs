@@ -17,5 +17,11 @@ namespace Hello_World_Razor_Page.Helpers
             return JsonConvert.DeserializeObject<List<Boat>>(jsonstring);
             
         }
+
+        public static List<Member> ReadMembersJson(string filePath)
+        {
+            string jsonstring = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<List<Member>>(jsonstring);
+        }
     }
 }

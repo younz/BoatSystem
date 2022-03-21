@@ -10,9 +10,15 @@ namespace Hello_World_Razor_Page.Helpers
 {
     public class JsonFileWriter
     {
-        public static void WriteToJson(List<Boat> boats,string filePath)
+        public static void WriteToJsonBoat(List<Boat> boats,string filePath)
         {
             string output = JsonConvert.SerializeObject(boats);
+            File.WriteAllText(filePath,output);
+        }
+
+        public static void WriteToJsonMember(List<Member> members, string filePath)
+        {
+            string output = JsonConvert.SerializeObject(members);
             File.WriteAllText(filePath,output);
         }
     }

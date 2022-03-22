@@ -17,12 +17,12 @@ namespace Hello_World_Razor_Page.Services
             membersList = new List<Member>();
             membersList.Add(new Member()
                 {
-                    Address = "Åmosevej 9, 3400 Hillerød",Email = "Email@email.com",Id = 5,
+                    Address = "Åmosevej 9, 3400 Hillerød",Email = "Email@email.com",MemberNumber = 5,
                     MemberName = "Jens Jensen",Password = "Something",PhoneNumber = 24856132
                 });
             membersList.Add(new Member()
             {
-                Address = "Lütkensvej 2, 3400 Hillerød",Email = "Janus@email.com",Id = 1,
+                Address = "Lütkensvej 2, 3400 Hillerød",Email = "Janus@email.com",MemberNumber = 1,
                 MemberName = "Hans Hansen",Password = "Words",PhoneNumber = 25463197
             });
             /* Member = new Dictionary<int, Member>();
@@ -50,17 +50,17 @@ namespace Hello_World_Razor_Page.Services
           List<int> memberids = new List<int>();
           foreach (var VARIABLE in membersList)
           {
-              memberids.Add(VARIABLE.Id);
+              memberids.Add(VARIABLE.MemberNumber);
           }
 
           if (memberids.Count !=0)
           {
               int start = memberids.Max();
-              member.Id = start+1;
+              member.MemberNumber = start+1;
           }
           else
           {
-              member.Id = 1;
+              member.MemberNumber = 1;
           }
           membersList.Add(member);
       }
@@ -70,7 +70,7 @@ namespace Hello_World_Razor_Page.Services
             Member tempMember = null;
             foreach (var VARIABLE in membersList)
             {
-                if (VARIABLE.Id ==id)
+                if (VARIABLE.MemberNumber ==id)
                 {
                     tempMember = VARIABLE;
                 }
@@ -81,7 +81,7 @@ namespace Hello_World_Razor_Page.Services
 
         public void RemoveMember(Member member)
         {
-            Member temp = GetMember(member.Id);
+            Member temp = GetMember(member.MemberNumber);
             membersList.Remove(temp);
         }
 
@@ -91,14 +91,14 @@ namespace Hello_World_Razor_Page.Services
             {
                 foreach (var VARIABLE in membersList)
                 {
-                    if (VARIABLE.Id == member.Id)
+                    if (VARIABLE.MemberNumber == member.MemberNumber)
                     {
                         VARIABLE.Address = member.Address;
                         VARIABLE.Email = member.Email;
                         VARIABLE.MemberName = member.MemberName;
                         VARIABLE.Password = member.Password;
                         VARIABLE.PhoneNumber = member.PhoneNumber;
-                        VARIABLE.Id = member.Id;
+                        VARIABLE.MemberNumber = member.MemberNumber;
                     }
                 }
             }

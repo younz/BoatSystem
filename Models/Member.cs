@@ -15,13 +15,13 @@ namespace Hello_World_Razor_Page.Models
         public string Address { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Password { get; set; }
-        public int Id { get; set; }
+        public int MemberNumber { get; set; }
         public override bool Equals(object? obj)
         {
             if (obj is Member)
             {
                 var abBoat = (Member)obj;
-                if (abBoat.Id == this.Id)
+                if (abBoat.MemberNumber == this.MemberNumber)
                 {
                     return true;
                 }

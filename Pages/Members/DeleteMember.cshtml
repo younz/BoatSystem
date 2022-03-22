@@ -8,28 +8,32 @@
     <div class="col-md-4">
         <form method="post">
             <div class="form-group">
+                <label asp-for="@Model.RemoveMember.MemberNumber" class="control-label"></label>
+                <input asp-for="@Model.RemoveMember.MemberNumber" class="form-control" readonly=""/>
+            </div>
+            <div class="form-group">
                 <label asp-for="@Model.RemoveMember.MemberName" class="control-label"></label>
-                <input asp-for="@Model.RemoveMember.MemberName" class="form-control" readonly="" />
+                <input asp-for="@Model.RemoveMember.MemberName" class="form-control" readonly=""/>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.RemoveMember.Address" class="control-label"></label>
-                <input asp-for="@Model.RemoveMember.Address" class="form-control"  readonly=""/>
+                <input asp-for="@Model.RemoveMember.Address" class="form-control" readonly=""/>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.RemoveMember.Email" class="control-label"></label>
-                <input asp-for="@Model.RemoveMember.Email" class="form-control" readonly="" />
+                <input asp-for="@Model.RemoveMember.Email" class="form-control" readonly=""/>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.RemoveMember.Password" class="control-label"></label>
-                <input asp-for="@Model.RemoveMember.Password" class="form-control" readonly="" />
+                <input asp-for="@Model.RemoveMember.Password" class="form-control" readonly=""/>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.RemoveMember.PhoneNumber" class="control-label"></label>
-                <input asp-for="@Model.RemoveMember.PhoneNumber" class="form-control"  readonly=""/>
+                <input asp-for="@Model.RemoveMember.PhoneNumber" class="form-control" readonly=""/>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Remove" class="btn btn-primary" />
+                <input type="submit" value="Remove" class="btn btn-primary"/>
             </div>
         </form>
     </div>

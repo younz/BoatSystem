@@ -19,17 +19,17 @@ namespace Hello_World_Razor_Page.Services
             List<int> memberId = new();
             foreach (Member tempMember in members)
             {
-                memberId.Add(tempMember.Id);
+                memberId.Add(tempMember.MemberNumber);
             }
 
             if (memberId.Count != 0)
             {
                 int start = memberId.Max();
-                    member.Id = start + 1;
+                    member.MemberNumber = start + 1;
             }
             else
             {
-                member.Id = 1;
+                member.MemberNumber = 1;
             }
 
             members.Add(member);
@@ -43,9 +43,9 @@ namespace Hello_World_Razor_Page.Services
                 List<Member> updateMembers = GetallMembers().ToList();
                 foreach (var oldMember in updateMembers)
                 {
-                    if (oldMember.Id == member.Id)
+                    if (oldMember.MemberNumber == member.MemberNumber)
                     {
-                        oldMember.Id = member.Id;
+                        oldMember.MemberNumber = member.MemberNumber;
                         oldMember.MemberName = member.MemberName;
                         oldMember.Address = member.Address;
                         oldMember.Email = member.Email;
@@ -69,7 +69,7 @@ namespace Hello_World_Razor_Page.Services
            Member tempBoat = null;
             foreach (Member variable in GetallMembers())
             {
-                if (id == variable.Id)
+                if (id == variable.MemberNumber)
                 {
                     tempBoat = variable;
                 }

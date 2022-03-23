@@ -20,7 +20,6 @@ namespace Hello_World_Razor_Page.Pages.Boats
         public void OnGet(int id)
         {
             BoatEdit = repo.GetById(id);
-            
         }
 
         public IActionResult OnPost()

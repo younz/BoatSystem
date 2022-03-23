@@ -35,7 +35,7 @@
     {
         <tr>
             <th>
-                @item.Id
+                @item.MemberNumber
             </th>
             <th>
                 @item.MemberName
@@ -50,10 +50,10 @@
                 @item.PhoneNumber
             </th>
             <td>
-                <a asp-page="EditMember" asp-route-id="@item.Id">Edit Info</a>
+                <a asp-page="EditMember" asp-route-id="@item.MemberNumber">Edit Info</a>
             </td>
             <td>
-                <a asp-page="DeleteMember" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="DeleteMember" asp-route-id="@item.MemberNumber">Delete</a>
             </td>
         </tr>
     }

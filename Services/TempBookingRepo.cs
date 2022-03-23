@@ -8,7 +8,7 @@ using Hello_World_Razor_Page.Models;
 
 namespace Hello_World_Razor_Page.Services
 {
-    public class TempBookingRepo
+    public class TempBookingRepo : ITempBookingRepo
     {
         //private IMemberRepo member;
         //private IBoatReposetory boat;

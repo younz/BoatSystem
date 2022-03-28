@@ -1,7 +1,6 @@
 ﻿@page
 @*@inject IMemberRepo members
 @inject IBoatReposetory boats*@
-@using Hello_World_Razor_Page.Interface
 @model Hello_World_Razor_Page.Pages.Bookings.CreateNewBookingModel
 @{
     ViewData["Title"] = "CreateNewBooking";
@@ -24,7 +23,11 @@
                 <input asp-for="@Model.Bookings.MemberNumber"class="form-control" required=""/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary"/>
+                <label asp-for="@Model.Bookings.confirmation"class="control-label"></label>
+                <input type="checkbox" asp-for="@Model.Bookings.confirmation" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

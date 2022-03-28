@@ -31,7 +31,7 @@ namespace Hello_World_Razor_Page.Pages.Bookings
                 return Page();
             }
 
-            Bookings.confirmation = true;
+            //Bookings.confirmation = true;
             bookings.AddBooking(Bookings);
             return RedirectToPage("Index");
         }

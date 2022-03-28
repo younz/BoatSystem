@@ -1,0 +1,31 @@
+﻿@page
+@*@inject IMemberRepo members
+@inject IBoatReposetory boats*@
+@using Hello_World_Razor_Page.Interface
+@model Hello_World_Razor_Page.Pages.Bookings.CreateNewBookingModel
+@{
+    ViewData["Title"] = "CreateNewBooking";
+}
+<h1> Create New Booking</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="from-group">
+                <label asp-for="@Model.Bookings.Date" class="control-label"> Select a Date </label>
+                <input type="date" asp-for="@Model.Bookings.Date" class="form-control" required=""/>
+            </div>
+            <div class="from-group">
+                <label asp-for="@Model.Bookings.BoatId" class="control-label">Select Boat</label>
+                @*<select asp-for="@Model.Bookings.BoatId"></select>*@
+                <input asp-for="@Model.Bookings.BoatId" class="form-control" required=""/>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Bookings.MemberNumber" class="control-label"></label>
+                <input asp-for="@Model.Bookings.MemberNumber"class="form-control" required=""/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>

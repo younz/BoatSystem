@@ -19,11 +19,11 @@ namespace Hello_World_Razor_Page.Services
         {
             bookingsHolder = new Dictionary<int, Booking>();
             bookingsHolder.Add(1,
-                new Booking(boatId: 7, bookingId: 1, true,
-                    date: new DateTime(2022, 5, 16).ToLocalTime(), memberNumber: 6));
+                new Booking(boatId: 1, bookingId: 1, true,
+                    date: new DateTime(2022, 5, 16).ToLocalTime(), memberNumber: 0));
             bookingsHolder.Add(2,
-                new Booking(boatId: 5, bookingId: 2, confirmation: true,
-                    date: new DateTime(2022, 6, 3).ToLocalTime(), memberNumber: 3));
+                new Booking(boatId: 2, bookingId: 2, confirmation: true,
+                    date: new DateTime(2022, 6, 3).ToLocalTime(), memberNumber: 2));
         }
 
         public IEnumerable<Booking> GetAllBookings()

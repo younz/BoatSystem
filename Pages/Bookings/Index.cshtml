@@ -1,0 +1,43 @@
+﻿@page 
+@inject IMemberRepo members
+@inject IBoatReposetory boats
+@using Hello_World_Razor_Page.Interface
+@model Hello_World_Razor_Page.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1> Current Bookings </h1>
+
+<p >
+    <a asp-page="CreateNewBooking"> Make New Booking </a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Booking date
+        </th>
+        <th> boat booked </th>
+        <th> Booking Member</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.SBookings)
+    {
+        <tr>
+            <th>
+                @item.Date.ToShortDateString()
+            </th>
+            <td>
+                @boats.GetById(item.BoatId).BoatName
+            </td>
+            <td>
+                @members.GetMember(item.MemberNumber).MemberName
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

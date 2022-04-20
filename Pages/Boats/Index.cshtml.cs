@@ -12,7 +12,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class IndexModel : PageModel
     {
-       // private FakeBoatReposetory _reposetory;
+       // private BoatReposetory _reposetory;
        private IBoatReposetory reposetory;
        public List<Boat> Boats { get; private set; }
         public string Criteria { get; set; }

@@ -26,7 +26,7 @@ namespace Hello_World_Razor_Page
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            //services.AddSingleton<IBoatReposetory,FakeBoatReposetory>();
+            //services.AddSingleton<IBoatReposetory,BoatReposetory>();
             services.AddTransient<IBoatReposetory, JsonBoatRepo>();
             //services.AddSingleton<IMemberRepo, FakeMemberRepo>();
             services.AddTransient<IMemberRepo, JsonMemberRepo>();

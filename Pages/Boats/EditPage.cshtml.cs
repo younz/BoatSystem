@@ -9,7 +9,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class EditPageModel : PageModel
     {
-        //private FakeBoatReposetory _reposetory;
+        //private BoatReposetory _reposetory;
         private IBoatReposetory repo;
         [BindProperty] public Boat BoatEdit { get; set; }
 

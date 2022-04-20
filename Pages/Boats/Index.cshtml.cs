@@ -13,17 +13,17 @@ namespace Hello_World_Razor_Page.Pages.Boats
     public class IndexModel : PageModel
     {
        // private BoatReposetory _reposetory;
-       private IBoatReposetory reposetory;
+       private IBoats reposetory;
        public List<Boat> Boats { get; private set; }
         public string Criteria { get; set; }
 
-        public IndexModel(IBoatReposetory repo)
+        public IndexModel(IBoats repo)
         {
             reposetory = repo;
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-            Boats = reposetory.GetAllBoats().ToList();
+             Boats = await reposetory.GetAllBoats().ToList();
             if (!string.IsNullOrEmpty(Criteria))
             {
                 Boats = FilteredBoats(Criteria);

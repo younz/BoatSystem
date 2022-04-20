@@ -18,7 +18,7 @@ namespace Hello_World_Razor_Page.Services
         public TempBookingRepo()
         {
             bookingsHolder = new Dictionary<int, Booking>();
-            bookingsHolder.Add(1,
+            bookingsHolder.Add(1,   
                 new Booking(boatId: 1, bookingId: 1, true,
                     date: new DateTime(2022, 5, 16).ToLocalTime(), memberNumber: 0));
             bookingsHolder.Add(2,
@@ -85,7 +85,7 @@ namespace Hello_World_Razor_Page.Services
                         VARIABLE.Value.MemberNumber = booking.MemberNumber;
                         VARIABLE.Value.BookingId = booking.BookingId;
                         VARIABLE.Value.Date = booking.Date;
-                        VARIABLE.Value.confirmation = booking.confirmation;
+                        VARIABLE.Value.Confirmation = booking.Confirmation;
                     } 
                 }
             }

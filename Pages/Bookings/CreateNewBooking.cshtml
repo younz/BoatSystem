@@ -10,21 +10,21 @@
     <div class="col-md-4">
         <form method="post">
             <div class="from-group">
-                <label asp-for="@Model.Bookings.Date" class="control-label"> Select a Date </label>
-                <input type="date" asp-for="@Model.Bookings.Date" class="form-control" required=""/>
+                <label asp-for="@Model.Booking.Date" class="control-label"> Select a Date </label>
+                <input type="date" asp-for="@Model.Booking.Date" class="form-control" required=""/>
             </div>
             <div class="from-group">
-                <label asp-for="@Model.Bookings.BoatId" class="control-label">Select Boat</label>
+                <label asp-for="@Model.Booking.BoatId" class="control-label">Select Boat</label>
                 @*<select asp-for="@Model.Bookings.BoatId"></select>*@
-                <input asp-for="@Model.Bookings.BoatId" class="form-control" required=""/>
+                <input asp-for="@Model.Booking.BoatId" class="form-control" required=""/>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Bookings.MemberNumber" class="control-label"></label>
-                <input asp-for="@Model.Bookings.MemberNumber"class="form-control" required=""/>
+                <label asp-for="@Model.Booking.MemberNumber" class="control-label"></label>
+                <input asp-for="@Model.Booking.MemberNumber"class="form-control" required=""/>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Bookings.confirmation"class="control-label"></label>
-                <input type="checkbox" asp-for="@Model.Bookings.confirmation" class="form-control"/>
+                <label asp-for="@Model.Booking.Confirmation"class="control-label"></label>
+                <input type="checkbox" asp-for="@Model.Booking.Confirmation" class="form-control"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

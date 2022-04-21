@@ -16,7 +16,9 @@ namespace Hello_World_Razor_Page.Services
         private string _GetById = "select * from Boat where BoatNumber = @ID";
         private string _AddBoat = "insert into Boat Values (@ID, @Name, @Model)";
         private string _RemoveBoat = "delete from Boat where BoatNumber = @ID";
-        private string _EditBoat = "Update Boat set boat BoatNumber = @ID,  @Name, @Model";
+        private string _EditBoat = "Update Boat " +
+                                   "set boat BoatNumber = @ID, BoatName= @Name, Model = @Model " +
+                                   "where Boatnumber = @ID";
         public List<Boat> Boats { get; set; }
         public Boat ListBoat { get; set; }
 
@@ -34,22 +36,60 @@ namespace Hello_World_Razor_Page.Services
                     SqlDataReader reader = await command.ExecuteReaderAsync();
                     while (await reader.ReadAsync())
                     {
-                        
+                        ListBoat.BoatId = reader.GetInt32(0);
+                        ListBoat.BoatName = reader.GetString(1);
+                        ListBoat.Model = (BoatModels)reader.GetInt32(2);
+                        Boats.Add(ListBoat);
                     }
                 }
             }
-            throw new NotImplementedException();
+
+            return Boats.ToList();
+            
         }
 
 
-        public Task<bool> AddBoat(Boat boat)
+        public async Task<bool> AddBoat(Boat boat)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(_AddBoat, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", boat.BoatId);
+                    command.Parameters.AddWithValue("@Name", boat.BoatName);
+                    command.Parameters.AddWithValue("@Model", (int)boat.Model);
+                    await command.Connection.OpenAsync();
+                    int noOfRows = command.ExecuteNonQuery();
+                    if (noOfRows == 1)
+                    {
+                        return true;
+                    }
+                   
+                }
+            }
+
+            return false;
         }
 
-        public Task<bool> EditBoat(Boat boat)
+        public async Task<bool> EditBoat(Boat boat)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(_EditBoat,connection))
+                {
+                    command.Parameters.AddWithValue("@ID",boat.BoatId);
+                    command.Parameters.AddWithValue("@Name", boat.BoatName);
+                    command.Parameters.AddWithValue("@Model", (int)boat.Model);
+                   await command.Connection.OpenAsync();
+                    int NoOfRow = command.ExecuteNonQuery();
+                    if (NoOfRow ==1)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         public Task<Boat> GetById(int num)

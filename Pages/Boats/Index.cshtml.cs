@@ -14,7 +14,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
     {
        // private BoatReposetory _reposetory;
        private IBoats reposetory;
-       public List<Boat> Boats { get; private set; }
+       public IEnumerable<Boat> Boats { get; private set; }
         public string Criteria { get; set; }
 
         public IndexModel(IBoats repo)
@@ -23,7 +23,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
         }
         public async Task OnGet()
         {
-             Boats = await reposetory.GetAllBoats().ToList();
+            Boats = await reposetory.GetAllBoats();
             if (!string.IsNullOrEmpty(Criteria))
             {
                 Boats = FilteredBoats(Criteria);
@@ -32,6 +32,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
 
         private List<Boat> FilteredBoats(string criteria)
         {
+
             return new List<Boat>();
         }
     }

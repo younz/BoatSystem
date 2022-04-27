@@ -12,26 +12,26 @@ namespace Hello_World_Razor_Page.Pages.Members
     public class EditMemberModel : PageModel
     {
         [BindProperty] public Member Members { get; set; }
-        private IMemberRepo memberEdit;
+        private IMembers memberEdit;
 
-        public EditMemberModel(IMemberRepo repo)
+        public EditMemberModel(IMembers repo)
         {
             memberEdit = repo;
         }
 
-        public void OnGet(int id)
+        public async Task OnGet(int id)
         {
-            Members = memberEdit.GetMember(id);
+            Members = await memberEdit.GetMember(id);
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            memberEdit.EditMember(Members);
+            await memberEdit.EditMember(Members);
             return RedirectToPage("Index");
         }
     }

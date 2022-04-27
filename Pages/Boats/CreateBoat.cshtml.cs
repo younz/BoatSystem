@@ -13,11 +13,11 @@ namespace Hello_World_Razor_Page.Pages.Boats
     public class CreateBoatModel : PageModel
     {
        //private BoatReposetory _repository;
-       private IBoatReposetory repo; 
+       private IBoats repo; 
        [BindProperty]
         public Boat Boat { get; set; }
 
-        public CreateBoatModel(IBoatReposetory reposetory )
+        public CreateBoatModel(IBoats reposetory )
         {
             repo = reposetory;
         }

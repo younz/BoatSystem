@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Hello_World_Razor_Page.Interface;
 using Hello_World_Razor_Page.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,16 +10,17 @@ namespace Hello_World_Razor_Page.Pages.Members
 {
     public class IndexModel : PageModel
     {
-        private IMemberRepo repo;
+        //private IMemberRepo repo;
+        private IMembers repo;
         public List<Member> Members { get; private set; }
 
-        public IndexModel(IMemberRepo repos)
+        public IndexModel(IMembers repos)
         {
             repo = repos;
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-            Members = repo.GetallMembers().ToList();
+            Members = await repo.GetAllMembers();
         }
     }
 }

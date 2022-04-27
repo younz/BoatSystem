@@ -27,10 +27,12 @@ namespace Hello_World_Razor_Page
         {
             services.AddRazorPages();
             //services.AddSingleton<IBoatReposetory,BoatReposetory>();
-            services.AddTransient<IBoatReposetory, JsonBoatRepo>();
+            //services.AddTransient<IBoatReposetory, JsonBoatRepo>();
             //services.AddSingleton<IMemberRepo, FakeMemberRepo>();
-            services.AddTransient<IMemberRepo, JsonMemberRepo>();
+           // services.AddTransient<IMemberRepo, JsonMemberRepo>();
             services.AddSingleton<IBookingRepo, TempBookingRepo>();
+            services.AddTransient<IBoats, Boatservices>();
+            services.AddTransient<IMembers, MembersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -44,7 +44,7 @@ namespace Hello_World_Razor_Page.Services
 
         public void RemoveBoat(Boat boat)
         {
-            if (boat!= null)
+            if (boat != null)
             {
                 
                 List<Boat> removeBoats = GetAllBoats().ToList();

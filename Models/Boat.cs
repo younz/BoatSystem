@@ -18,6 +18,17 @@ namespace Hello_World_Razor_Page.Models
     }
     public class Boat
     {
+        public Boat(string boatName, int boatId, BoatModels model)
+        {
+            BoatName = boatName;
+            BoatId = boatId;
+            Model = model;
+        }
+
+        public Boat()
+        {
+        }
+
         [Display(Name = "Boat Name")]
         [Required(ErrorMessage = "Name on the boat is required"),MaxLength(30)]
         public string BoatName { get; set; }

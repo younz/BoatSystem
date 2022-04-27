@@ -14,7 +14,7 @@ namespace Hello_World_Razor_Page.Pages.Boats
     {
        // private BoatReposetory _reposetory;
        private IBoats reposetory;
-       public IEnumerable<Boat> Boats { get; private set; }
+       public List<Boat> Boats { get; private set; }
         public string Criteria { get; set; }
 
         public IndexModel(IBoats repo)

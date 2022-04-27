@@ -18,12 +18,12 @@ namespace Hello_World_Razor_Page.Services
             membersList.Add(new Member()
                 {
                     Address = "Åmosevej 9, 3400 Hillerød",Email = "Email@email.com",MemberNumber = 5,
-                    MemberName = "Jens Jensen",Password = "Something",PhoneNumber = 24856132
+                    MemberName = "Jens Jensen",Password = "Something",PhoneNumber = "24856132"
                 });
             membersList.Add(new Member()
             {
                 Address = "Lütkensvej 2, 3400 Hillerød",Email = "Janus@email.com",MemberNumber = 1,
-                MemberName = "Hans Hansen",Password = "Words",PhoneNumber = 25463197
+                MemberName = "Hans Hansen",Password = "Words",PhoneNumber = "25463197"
             });
             /* Member = new Dictionary<int, Member>();
              MembersdDictionary.Add(0,new Member()

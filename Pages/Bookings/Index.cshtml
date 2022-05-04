@@ -1,6 +1,6 @@
 ﻿@page 
-@inject IMemberRepo members
-@inject IBoatReposetory boats
+@inject IMembers members
+@inject IBoats boats
 @using Hello_World_Razor_Page.Interface
 @model Hello_World_Razor_Page.Pages.Bookings.IndexModel
 @{
@@ -32,10 +32,10 @@
                 @item.Date.ToShortDateString()
             </th>
             <td>
-                @boats.GetById(item.BoatId).BoatName
+                @boats.GetById(item.BoatId).Result.BoatName
             </td>
             <td>
-                @members.GetMember(item.MemberNumber).MemberName
+                @members.GetMember(item.MemberNumber).Result.MemberName
             </td>
         </tr>
     }

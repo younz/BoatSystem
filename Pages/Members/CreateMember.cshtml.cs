@@ -11,10 +11,11 @@ namespace Hello_World_Razor_Page.Pages.Members
 {
     public class CreateMemberModel : PageModel
     {
-        private IMemberRepo repo;
+        //private IMemberRepo repo;
+        private IMembers repo;
         [BindProperty] public Member member { get; set; }
 
-        public CreateMemberModel(IMemberRepo memberRepo)
+        public CreateMemberModel(IMembers memberRepo)
         {
             repo = memberRepo;
         }
@@ -23,13 +24,13 @@ namespace Hello_World_Razor_Page.Pages.Members
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            repo.AddMember(member);
+            await repo.AddMember(member);
             return RedirectToPage("Index");
         }
     }

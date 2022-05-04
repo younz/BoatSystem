@@ -11,16 +11,16 @@ namespace Hello_World_Razor_Page.Pages.Members
 {
     public class DeleteMemberModel : PageModel
     {
-        private IMemberRepo repo;
+        private IMembers repo;
         [BindProperty]public Member RemoveMember{ get; set; }
 
-        public DeleteMemberModel(IMemberRepo tempMemberRepo)
+        public DeleteMemberModel(IMembers tempMemberRepo)
         {
             repo = tempMemberRepo;
         }
-        public void OnGet(int id)
+        public async Task OnGet(int id)
         {
-            RemoveMember = repo.GetMember(id);
+            RemoveMember = await repo.GetMember(id);
         }
 
         public IActionResult OnPost()

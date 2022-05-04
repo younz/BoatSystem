@@ -12,26 +12,26 @@ namespace Hello_World_Razor_Page.Pages.Boats
 {
     public class DeleteBoatModel : PageModel
     {
-        private IBoatReposetory repo;
+        private IBoats repo;
         [BindProperty] public Boat RBoat { get; set; }
 
-        public DeleteBoatModel(IBoatReposetory reposetory)
+        public DeleteBoatModel(IBoats reposetory)
         {
             repo = reposetory;
         }
-        public void OnGet(int id)
+        public async Task OnGet(int id)
         {
-            RBoat = repo.GetById(id);
+            RBoat = await repo.GetById(id);
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
                 
             }
-            repo.RemoveBoat(RBoat);
+            await repo.RemoveBoat(RBoat);
             return RedirectToPage("Index");
         }
     }

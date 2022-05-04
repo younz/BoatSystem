@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Hello_World_Razor_Page.Interface;
 using Hello_World_Razor_Page.Models;
 using Hello_World_Razor_Page.Services;
@@ -10,25 +11,25 @@ namespace Hello_World_Razor_Page.Pages.Boats
     public class EditPageModel : PageModel
     {
         //private BoatReposetory _reposetory;
-        private IBoatReposetory repo;
+        private IBoats repo;
         [BindProperty] public Boat BoatEdit { get; set; }
 
-        public EditPageModel(IBoatReposetory reposetory)
+        public EditPageModel(IBoats reposetory)
         {
             repo = reposetory;
         }
-        public void OnGet(int id)
+        public async Task OnGet(int id)
         {
-            BoatEdit = repo.GetById(id);
+            BoatEdit = await repo.GetById(id);
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {  
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            repo.EditBoat(BoatEdit);
+            await repo.EditBoat(BoatEdit);
             return RedirectToPage("Index");
         }
     }

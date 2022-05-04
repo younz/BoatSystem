@@ -15,14 +15,14 @@ namespace Hello_World_Razor_Page.Models
         {
             BoatId = boatId;
             BookingId = bookingId;
-            Confirmation = confirmation;
+           // Confirmation = confirmation;
             Date = date;
             MemberNumber = memberNumber;
         }
 
         public int BookingId { get; set; }
         public DateTime Date { get; set; }
-        public bool Confirmation { get; set; } 
+        //public bool Confirmation { get; set; } 
         
         public int BoatId { get; set; }
 

@@ -85,7 +85,7 @@ namespace Hello_World_Razor_Page.Services
                         VARIABLE.Value.MemberNumber = booking.MemberNumber;
                         VARIABLE.Value.BookingId = booking.BookingId;
                         VARIABLE.Value.Date = booking.Date;
-                        VARIABLE.Value.Confirmation = booking.Confirmation;
+                       // VARIABLE.Value.Confirmation = booking.Confirmation;
                     } 
                 }
             }

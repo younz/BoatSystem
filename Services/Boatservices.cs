@@ -33,16 +33,24 @@ namespace Hello_World_Razor_Page.Services
             {
                 await using (SqlCommand command =new SqlCommand(_GetAllBoats,sqlConnection))
                 {
-                    await command.Connection.OpenAsync();
-                    SqlDataReader reader = await command.ExecuteReaderAsync();
-                    while (await reader.ReadAsync())
+                    try
                     {
-                        Boat boat = new Boat();
-                        boat.BoatId = reader.GetInt32(0);
-                        boat.BoatName = reader.GetString(1);
-                        boat.Model = (BoatModels)reader.GetInt32(2);
-                        boats.Add(boat);
+                        await command.Connection.OpenAsync();
+                        SqlDataReader reader = await command.ExecuteReaderAsync();
+                        while (await reader.ReadAsync())
+                        {
+                            Boat boat = new Boat();
+                            boat.BoatId = reader.GetInt32(0);
+                            boat.BoatName = reader.GetString(1);
+                            boat.Model = (BoatModels)reader.GetInt32(2);
+                            boats.Add(boat);
+                        }
+
                     }
+                    catch (Exception e)
+                    {
+                        throw new Exception("");
+                    } 
                 }
             }
 

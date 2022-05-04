@@ -6,7 +6,7 @@ using Hello_World_Razor_Page.Models;
 
 namespace Hello_World_Razor_Page.Interface
 {
-    interface IBooking
+    public interface IBooking
     {
         Task<IEnumerable<Booking>> GetAllBookings();
         Task<bool> AddBooking( Booking booking);

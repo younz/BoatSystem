@@ -16,16 +16,16 @@
             <div class="from-group">
                 <label asp-for="@Model.Booking.BoatId" class="control-label">Select Boat</label>
                 @*<select asp-for="@Model.Bookings.BoatId"></select>*@
-                <input asp-for="@Model.Booking.BoatId" class="form-control" required=""/>
+                <select asp-for="@Model.Booking.BoatId" asp-items="Model.BoatItems" class="form-control" required=""></select>
             </div>
             <div class="form-group">
                 <label asp-for="@Model.Booking.MemberNumber" class="control-label"></label>
-                <input asp-for="@Model.Booking.MemberNumber"class="form-control" required=""/>
+                <select asp-for="@Model.Booking.MemberNumber" asp-items="Model.MemberItems" class="form-control" required=""></select>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="@Model.Booking.Confirmation"class="control-label"></label>
                 <input type="checkbox" asp-for="@Model.Booking.Confirmation" class="form-control"/>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
